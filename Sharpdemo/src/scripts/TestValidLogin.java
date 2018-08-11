@@ -25,7 +25,7 @@ public class TestValidLogin extends BaseTest{
 		//click on Login button
 		lp.clickLogin();
 		//Apply some condition -- using Explicit wait
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.titleIs("actiTIME - Enter Time-Track"));
 		SoftAssert sa = new SoftAssert();
 		sa.assertEquals(driver.getTitle(), "actiTIME - Enter Time-Track");
