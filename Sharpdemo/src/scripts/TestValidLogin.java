@@ -1,6 +1,8 @@
 package scripts;
 
 import org.testng.annotations.Test;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -13,8 +15,14 @@ import pompages.LoginPage;
 public class TestValidLogin extends BaseTest{
 	@Test
 	public void testValidLogin() throws InterruptedException{
+		
+		Logger log = LogManager.getLogger(TestValidLogin.class.getName());
+		log.debug("Creating an object of LoginPage pom class");
 		LoginPage lp = new LoginPage(driver);
+		log.info("Object created successfully");
+		log.debug("Fetching USERNAME from excel file");
 		String username = Lib.getCellValue("ValidLogin", 1, 0);
+		log.info("Username successfully retrieved....");
 		String password = Lib.getCellValue("ValidLogin", 1, 1);
 		//Set username
 		lp.setUsername(username);
